@@ -5,6 +5,7 @@ from utils.cred import getCred
 from utils.getarchivos import getArchivos
 from utils.getDataframe import getJSONxDataFrame
 from utils.upHasura import insert_stock
+from utils.delete import eliminarxlsx
 import json
 
 #Obteniendo Lista de Archivos
@@ -36,6 +37,7 @@ archivo = open('output/variables.json')
 variables = json.load(archivo)
 
 #DESCARGAMOS LOS  ARCHIVOS
+eliminarxlsx()
 getArchivos(correo,password)
 for i in range(0,x):
     pregunta = str(archivos[i])
