@@ -3,7 +3,7 @@ import json
 import numpy as np
 from datetime import date, datetime
 
-path = 'adjunto/STOCK TODOS LOS ALMACENES AL 12.11.2021.xlsx'
+# path = 'adjunto/STOCK TODOS LOS ALMACENES AL 12.11.2021.xlsx'
 def getJSONxDataFrame(path):
     fecha=datetime.today().strftime('%Y-%m-%d')
     date ='2021-11-12'
@@ -11,11 +11,15 @@ def getJSONxDataFrame(path):
 
     #print(df['Fecha Exíración'])
     codigoItem = df['Código Item']
+    
     CODITEM =[]
     for item in codigoItem:
-        CODITEM.append(str(item))
-    
-    
+          k = str(item)
+          x =k[0:5]
+          y=k[5:10]
+          z=k[10:12]
+          newitem = x+'-'+y+'-'+z
+          CODITEM.append(newitem)
     fechaIngreso =[]
     for fechaing in codigoItem:
         fechaIngreso.append(str(fecha))
